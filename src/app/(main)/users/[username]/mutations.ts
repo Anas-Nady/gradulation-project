@@ -1,7 +1,7 @@
-import { useToast } from "@/components/ui/use-toast";
-import { PostsPage } from "@/lib/types";
-import { useUploadThing } from "@/lib/uploadthing";
-import { UpdateUserProfileValues } from "@/lib/validation";
+import { useToast } from "./../../../../components/ui/use-toast";
+import { PostsPage } from "./../../../../lib/types";
+import { useUploadThing } from "./../../../../lib/uploadthing";
+import { UpdateUserProfileValues } from "./../../../../lib/validation";
 import {
   InfiniteData,
   QueryFilters,

@@ -1,14 +1,14 @@
-import LoadingButton from "@/components/LoadingButton";
+import LoadingButton from "./../../../components/LoadingButton";
 import {
   Dialog,
   DialogContent,
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { useToast } from "@/components/ui/use-toast";
-import UserAvatar from "@/components/UserAvatar";
-import useDebounce from "@/hooks/useDebounce";
+} from "./../../../components/ui/dialog";
+import { useToast } from "./../../../components/ui/use-toast";
+import UserAvatar from "./../../../components/UserAvatar";
+import useDebounce from "./../../../hooks/useDebounce";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { Check, Loader2, SearchIcon, X } from "lucide-react";
 import { useState } from "react";

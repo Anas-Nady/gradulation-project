@@ -1,6 +1,6 @@
-import { validateRequest } from "@/auth";
-import prisma from "@/lib/prisma";
-import { getUserDataSelect } from "@/lib/types";
+import { validateRequest } from "../../../../../auth";
+import prisma from "../../../../../lib/prisma";
+import { getUserDataSelect } from "../../../../../lib/types";
 
 export async function GET(
   req: Request,

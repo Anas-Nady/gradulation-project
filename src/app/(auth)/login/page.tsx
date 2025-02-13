@@ -1,4 +1,4 @@
-import loginImage from "@/assets/login-image.webp";
+import loginImage from "../../../assets/login-image.webp";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";

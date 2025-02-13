@@ -1,7 +1,7 @@
 "use client";
 
-import { useSession } from "@/app/(main)/SessionProvider";
-import { FollowerInfo, UserData } from "@/lib/types";
+import { useSession } from "./../app/(main)/SessionProvider";
+import { FollowerInfo, UserData } from "./../lib/types";
 import Link from "next/link";
 import { PropsWithChildren } from "react";
 import FollowButton from "./FollowButton";

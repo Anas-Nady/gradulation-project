@@ -1,6 +1,6 @@
-import { validateRequest } from "@/auth";
-import streamServerClient from "@/lib/stream";
-import { MessageCountInfo } from "@/lib/types";
+import { validateRequest } from "../../../../auth";
+import streamServerClient from "../../../../lib/stream";
+import { MessageCountInfo } from "../../../../lib/types";
 
 export async function GET() {
   try {

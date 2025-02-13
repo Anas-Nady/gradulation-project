@@ -1,6 +1,6 @@
-import { useSession } from "@/app/(main)/SessionProvider";
-import { CommentData } from "@/lib/types";
-import { formatRelativeDate } from "@/lib/utils";
+import { useSession } from "./../../app/(main)/SessionProvider";
+import { CommentData } from "./../../lib/types";
+import { formatRelativeDate } from "./../../lib/utils";
 import Link from "next/link";
 import UserAvatar from "../UserAvatar";
 import UserTooltip from "../UserTooltip";

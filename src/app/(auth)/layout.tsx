@@ -1,4 +1,4 @@
-import { validateRequest } from "@/auth";
+import { validateRequest } from "../../auth";
 import { redirect } from "next/navigation";
 
 export default async function Layout({
