@@ -1,4 +1,4 @@
-import { google } from "@/auth";
+import { google } from "../../../../auth";
 import { generateCodeVerifier, generateState } from "arctic";
 import { cookies } from "next/headers";
 
@@ -6,11 +6,14 @@ export async function GET() {
   const state = generateState();
   const codeVerifier = generateCodeVerifier();
 
-  const url = await google.createAuthorizationURL(state, codeVerifier, {
-    scopes: ["profile", "email"], // Add "openid"
-  });
+  const url = google.createAuthorizationURL(state, codeVerifier, [
+    "profile",
+    "email",
+    "openid",
+  ]);
 
-  cookies().set("state", state, {
+  const cookieStore = await cookies();
+  cookieStore.set("state", state, {
     path: "/",
     secure: process.env.NODE_ENV === "production",
     httpOnly: true,
@@ -18,7 +21,7 @@ export async function GET() {
     sameSite: "lax",
   });
 
-  cookies().set("code_verifier", codeVerifier, {
+  cookieStore.set("code_verifier", codeVerifier, {
     path: "/",
     secure: process.env.NODE_ENV === "production",
     httpOnly: true,
