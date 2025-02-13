@@ -3,6 +3,7 @@ import { useToast } from "./../../../components/ui/use-toast";
 import { PostsPage } from "./../../../lib/types";
 import {
   InfiniteData,
+  Query,
   QueryFilters,
   useMutation,
   useQueryClient,
@@ -11,24 +12,23 @@ import { submitPost } from "./actions";
 
 export function useSubmitPostMutation() {
   const { toast } = useToast();
-
   const queryClient = useQueryClient();
-
   const { user } = useSession();
 
   const mutation = useMutation({
     mutationFn: submitPost,
     onSuccess: async (newPost) => {
-      const queryFilter = {
-        queryKey: ["post-feed"],
-        predicate(query) {
-          return (
-            query.queryKey.includes("for-you") ||
-            (query.queryKey.includes("user-posts") &&
-              query.queryKey.includes(user.id))
-          );
-        },
-      } satisfies QueryFilters;
+      const queryFilter: QueryFilters<InfiniteData<PostsPage, string | null>> =
+        {
+          queryKey: ["post-feed"],
+          predicate: (query: Query<InfiniteData<PostsPage, string | null>>) => {
+            return (
+              query.queryKey.includes("for-you") ||
+              (query.queryKey.includes("user-posts") &&
+                query.queryKey.includes(user.id))
+            );
+          },
+        };
 
       await queryClient.cancelQueries(queryFilter);
 
@@ -49,13 +49,19 @@ export function useSubmitPostMutation() {
               ],
             };
           }
+
+          return oldData; // Return oldData if no changes are made
         },
       );
 
       queryClient.invalidateQueries({
         queryKey: queryFilter.queryKey,
-        predicate(query) {
-          return queryFilter.predicate(query) && !query.state.data;
+        predicate: (query) => {
+          return (
+            query.queryKey.includes("for-you") ||
+            (query.queryKey.includes("user-posts") &&
+              query.queryKey.includes(user.id))
+          );
         },
       });
 

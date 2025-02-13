@@ -3,11 +3,13 @@ import prisma from "../../../../../lib/prisma";
 import { getPostDataInclude, PostsPage } from "../../../../../lib/types";
 import { NextRequest } from "next/server";
 
-export async function GET(
-  req: NextRequest,
-  { params: { userId } }: { params: { userId: string } },
-) {
+interface PageProps {
+  params: Promise<{ userId: string }>;
+}
+
+export async function GET(req: NextRequest, { params }: PageProps) {
   try {
+    const userId = (await params).userId;
     const cursor = req.nextUrl.searchParams.get("cursor") || undefined;
 
     const pageSize = 10;

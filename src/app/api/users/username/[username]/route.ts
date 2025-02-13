@@ -2,11 +2,13 @@ import { validateRequest } from "../../../../../auth";
 import prisma from "../../../../../lib/prisma";
 import { getUserDataSelect } from "../../../../../lib/types";
 
-export async function GET(
-  req: Request,
-  { params: { username } }: { params: { username: string } },
-) {
+interface PageProps {
+  params: Promise<{ username: string }>;
+}
+
+export async function GET(req: Request, { params }: PageProps) {
   try {
+    const username = (await params).username;
     const { user: loggedInUser } = await validateRequest();
 
     if (!loggedInUser) {

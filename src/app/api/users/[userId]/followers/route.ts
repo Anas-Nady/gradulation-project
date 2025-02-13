@@ -2,11 +2,13 @@ import { validateRequest } from "../../../../../auth";
 import prisma from "../../../../../lib/prisma";
 import { FollowerInfo } from "../../../../../lib/types";
 
-export async function GET(
-  req: Request,
-  { params: { userId } }: { params: { userId: string } },
-) {
+interface PageProps {
+  params: Promise<{ userId: string }>;
+}
+
+export async function GET(req: Request, { params }: PageProps) {
   try {
+    const userId = (await params).userId;
     const { user: loggedInUser } = await validateRequest();
 
     if (!loggedInUser) {
@@ -48,11 +50,9 @@ export async function GET(
   }
 }
 
-export async function POST(
-  req: Request,
-  { params: { userId } }: { params: { userId: string } },
-) {
+export async function POST(req: Request, { params }: PageProps) {
   try {
+    const userId = (await params).userId;
     const { user: loggedInUser } = await validateRequest();
 
     if (!loggedInUser) {
@@ -89,11 +89,9 @@ export async function POST(
   }
 }
 
-export async function DELETE(
-  req: Request,
-  { params: { userId } }: { params: { userId: string } },
-) {
+export async function DELETE(req: Request, { params }: PageProps) {
   try {
+    const userId = (await params).userId;
     const { user: loggedInUser } = await validateRequest();
 
     if (!loggedInUser) {
