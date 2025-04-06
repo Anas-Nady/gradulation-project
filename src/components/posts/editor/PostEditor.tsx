@@ -43,7 +43,7 @@ export default function PostEditor() {
         italic: false,
       }),
       Placeholder.configure({
-        placeholder: "What's crack-a-lackin'?",
+        placeholder: "اكتب شيئًا...",
       }),
     ],
   });
@@ -81,14 +81,15 @@ export default function PostEditor() {
         <UserAvatar avatarUrl={user.avatarUrl} className="hidden sm:inline" />
         <div {...rootProps} className="w-full">
           <EditorContent
+            dir="rtl"
             editor={editor}
             className={cn(
-              "max-h-[20rem] w-full overflow-y-auto rounded-2xl bg-background px-5 py-3",
+              "max-h-[20rem] w-full overflow-y-auto rounded-2xl bg-background px-5 py-3 text-right",
               isDragActive && "outline-dashed",
             )}
             onPaste={onPaste}
           />
-          <input {...getInputProps()} />
+          <input {...getInputProps()} dir="rtl" />
         </div>
       </div>
       {!!attachments.length && (
@@ -114,7 +115,7 @@ export default function PostEditor() {
           disabled={!input.trim() || isUploading}
           className="min-w-20"
         >
-          Post
+          نشر
         </LoadingButton>
       </div>
     </div>

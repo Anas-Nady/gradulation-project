@@ -26,7 +26,10 @@ export default function Post({ post }: PostProps) {
   const [showComments, setShowComments] = useState(false);
 
   return (
-    <article className="group/post space-y-3 rounded-2xl bg-card p-5 shadow-sm">
+    <article
+      dir="rtl"
+      className="group/post space-y-3 rounded-2xl bg-card p-5 shadow-sm"
+    >
       <div className="flex justify-between gap-3">
         <div className="flex flex-wrap gap-3">
           <UserTooltip user={post.user}>
@@ -60,7 +63,9 @@ export default function Post({ post }: PostProps) {
         )}
       </div>
       <Linkify>
-        <div className="whitespace-pre-line break-words">{post.content}</div>
+        <div dir="rtl" className="whitespace-pre-line break-words">
+          {post.content}
+        </div>
       </Linkify>
       {!!post.attachments.length && (
         <MediaPreviews attachments={post.attachments} />
@@ -155,8 +160,7 @@ function CommentButton({ post, onClick }: CommentButtonProps) {
     <button onClick={onClick} className="flex items-center gap-2">
       <MessageSquare className="size-5" />
       <span className="text-sm font-medium tabular-nums">
-        {post._count.comments}{" "}
-        <span className="hidden sm:inline">comments</span>
+        {post._count.comments} <span className="hidden sm:inline">تعليقات</span>
       </span>
     </button>
   );

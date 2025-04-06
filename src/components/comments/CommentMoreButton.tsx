@@ -33,7 +33,7 @@ export default function CommentMoreButton({
           <DropdownMenuItem onClick={() => setShowDeleteDialog(true)}>
             <span className="flex items-center gap-3 text-destructive">
               <Trash2 className="size-4" />
-              Delete
+              <span className="text-sm font-medium">حذف</span>
             </span>
           </DropdownMenuItem>
         </DropdownMenuContent>

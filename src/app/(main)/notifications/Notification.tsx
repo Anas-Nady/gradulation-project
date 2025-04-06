@@ -15,17 +15,17 @@ export default function Notification({ notification }: NotificationProps) {
     { message: string; icon: JSX.Element; href: string }
   > = {
     FOLLOW: {
-      message: `${notification.issuer.displayName} followed you`,
+      message: `${notification.issuer.displayName} قام بمتابعتك`,
       icon: <User2 className="size-7 text-primary" />,
       href: `/users/${notification.issuer.username}`,
     },
     COMMENT: {
-      message: `${notification.issuer.displayName} commented on your post`,
+      message: `${notification.issuer.displayName} علق علي منشورك`,
       icon: <MessageCircle className="size-7 fill-primary text-primary" />,
       href: `/posts/${notification.postId}`,
     },
     LIKE: {
-      message: `${notification.issuer.displayName} liked your post`,
+      message: `${notification.issuer.displayName} أعجب بمنشورك`,
       icon: <Heart className="size-7 fill-red-500 text-red-500" />,
       href: `/posts/${notification.postId}`,
     },
@@ -45,7 +45,7 @@ export default function Notification({ notification }: NotificationProps) {
         <div className="space-y-3">
           <UserAvatar avatarUrl={notification.issuer.avatarUrl} size={36} />
           <div>
-            <span className="font-bold">{notification.issuer.displayName}</span>{" "}
+            {/* <span className="font-bold">{notification.issuer.displayName}</span>{" "} */}
             <span>{message}</span>
           </div>
           {notification.post && (

@@ -43,7 +43,7 @@ async function WhoToFollow() {
 
   return (
     <div className="space-y-5 rounded-2xl bg-card p-5 shadow-sm">
-      <div className="text-xl font-bold">Who to follow</div>
+      <div className="text-xl font-bold">أشهر المدرسين علي الموقع</div>
       {usersToFollow.map((user) => (
         <div key={user.id} className="flex items-center justify-between gap-3">
           <UserTooltip user={user}>
@@ -103,9 +103,10 @@ async function TrendingTopics() {
 
   return (
     <div className="space-y-5 rounded-2xl bg-card p-5 shadow-sm">
-      <div className="text-xl font-bold">Trending topics</div>
+      <div className="text-xl font-bold">المواضيع الشائعة</div>
       {trendingTopics.map(({ hashtag, count }) => {
         const title = hashtag.split("#")[1];
+        console.log(title, hashtag);
 
         return (
           <Link key={title} href={`/hashtag/${title}`} className="block">
@@ -116,7 +117,7 @@ async function TrendingTopics() {
               {hashtag}
             </p>
             <p className="text-sm text-muted-foreground">
-              {formatNumber(count)} {count === 1 ? "post" : "posts"}
+              {formatNumber(count)} {count === 1 ? "منشور" : "منشورات"}
             </p>
           </Link>
         );

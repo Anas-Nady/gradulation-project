@@ -117,3 +117,15 @@
 .str-chat__channel-search-bar-button--exit-search {
   display: none;
 }
+
+/* This targets the placeholder text and centers it */
+.ProseMirror p.is-editor-empty::before {
+  content: attr(data-placeholder);
+  float: right; /* Ensures RTL support */
+  color: #888;
+  pointer-events: none;
+  height: 0;
+  text-align: right;
+  display: block;
+  width: 100%;
+}

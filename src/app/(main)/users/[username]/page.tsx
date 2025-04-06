@@ -73,7 +73,7 @@ export default async function Page({ params }: PageProps) {
         <UserProfile user={user} loggedInUserId={loggedInUser.id} />
         <div className="rounded-2xl bg-card p-5 shadow-sm">
           <h2 className="text-center text-2xl font-bold">
-            {user.displayName}&apos;s posts
+            منشورات {user.displayName}
           </h2>
         </div>
         <UserPosts userId={user.id} />
@@ -109,10 +109,10 @@ async function UserProfile({ user, loggedInUserId }: UserProfileProps) {
             <h1 className="text-3xl font-bold">{user.displayName}</h1>
             <div className="text-muted-foreground">@{user.username}</div>
           </div>
-          <div>Member since {formatDate(user.createdAt, "MMM d, yyyy")}</div>
+          <div>عضو منذ {formatDate(user.createdAt, "MMM d, yyyy")}</div>
           <div className="flex items-center gap-3">
             <span>
-              Posts:{" "}
+              المنشورات:{" "}
               <span className="font-semibold">
                 {formatNumber(user._count.posts)}
               </span>

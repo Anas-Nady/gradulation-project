@@ -34,10 +34,12 @@ export default function DeleteCommentDialog({
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Delete comment?</DialogTitle>
-          <DialogDescription>
-            Are you sure you want to delete this comment? This action cannot be
-            undone.
+          <DialogTitle dir="rtl" className="mx-4 text-right">
+            حذف التعليق
+          </DialogTitle>
+          <DialogDescription dir="rtl" className="mx-4 text-right">
+            هل أنت متأكد أنك تريد حذف هذا التعليق لا يمكن التراجع عن هذا
+            الإجراء.
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
@@ -45,15 +47,17 @@ export default function DeleteCommentDialog({
             variant="destructive"
             onClick={() => mutation.mutate(comment.id, { onSuccess: onClose })}
             loading={mutation.isPending}
+            className="mx-3"
           >
-            Delete
+            حذف
           </LoadingButton>
           <Button
             variant="outline"
             onClick={onClose}
+            className="mx-3"
             disabled={mutation.isPending}
           >
-            Cancel
+            الغاء
           </Button>
         </DialogFooter>
       </DialogContent>

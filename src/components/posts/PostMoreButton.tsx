@@ -31,9 +31,12 @@ export default function PostMoreButton({
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuItem onClick={() => setShowDeleteDialog(true)}>
-            <span className="flex items-center gap-3 text-destructive">
+            <span
+              className="flex items-center gap-3 text-destructive"
+              dir="rtl"
+            >
               <Trash2 className="size-4" />
-              Delete
+              <span className="text-md font-medium">حذف المنشور</span>
             </span>
           </DropdownMenuItem>
         </DropdownMenuContent>

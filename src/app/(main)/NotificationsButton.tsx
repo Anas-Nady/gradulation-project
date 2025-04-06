@@ -28,7 +28,7 @@ export default function NotificationsButton({
     <Button
       variant="ghost"
       className="flex items-center justify-start gap-3"
-      title="Notifications"
+      title="الإشعارات"
       asChild
     >
       <Link href="/notifications">
@@ -40,7 +40,7 @@ export default function NotificationsButton({
             </span>
           )}
         </div>
-        <span className="hidden lg:inline">Notifications</span>
+        <span className="hidden lg:inline">الإشعارات</span>
       </Link>
     </Button>
   );
