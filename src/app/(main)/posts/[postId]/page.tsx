@@ -84,7 +84,7 @@ async function UserInfoSidebar({ user }: UserInfoSidebarProps) {
 
   return (
     <div className="space-y-5 rounded-2xl bg-card p-5 shadow-sm">
-      <div className="text-xl font-bold">About this user</div>
+      <div className="text-xl font-bold">معلومات عن الناشر</div>
       <UserTooltip user={user}>
         <Link
           href={`/users/${user.username}`}

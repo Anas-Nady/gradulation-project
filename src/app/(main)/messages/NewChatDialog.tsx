@@ -90,13 +90,13 @@ export default function NewChatDialog({
     <Dialog open onOpenChange={onOpenChange}>
       <DialogContent className="bg-card p-0">
         <DialogHeader className="px-6 pt-6">
-          <DialogTitle>New chat</DialogTitle>
+          <DialogTitle>محادثة جديدة</DialogTitle>
         </DialogHeader>
         <div>
           <div className="group relative">
             <SearchIcon className="absolute left-5 top-1/2 size-5 -translate-y-1/2 transform text-muted-foreground group-focus-within:text-primary" />
             <input
-              placeholder="Search users..."
+              placeholder="ابحث عن مستخدمين"
               className="h-12 w-full pe-4 ps-14 focus:outline-none"
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}

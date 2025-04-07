@@ -92,7 +92,7 @@ function MenuHeader({ onClose }: MenuHeaderProps) {
         <Button
           size="icon"
           variant="ghost"
-          title="Start new chat"
+          title="بدء محادثة جديدة"
           onClick={() => setShowNewChatDialog(true)}
         >
           <MailPlus className="size-5" />
