@@ -26,7 +26,7 @@ export default function Page() {
             </div>
             <LoginForm />
             <Link href="/signup" className="block text-center hover:underline">
-              ليس لديك حساب بالفعل؟ تسجيل الدخول
+              ليس لديك حساب بالفعل؟ إنشاء حساب
             </Link>
           </div>
         </div>

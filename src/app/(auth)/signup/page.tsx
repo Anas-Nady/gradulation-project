@@ -25,7 +25,7 @@ export default function Page() {
           <div className="space-y-5">
             <SignUpForm />
             <Link href="/login" className="block text-center hover:underline">
-              ليس لديك حساب بالفعل؟ تسجيل الدخول
+              هل لديك حساب بالفعل؟ تسجيل الدخول
             </Link>
           </div>
         </div>
